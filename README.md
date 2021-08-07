@@ -1,6 +1,6 @@
 # Python-JavaScript---Blog
 
-This web app is a dynamic and interactive portfolio application for users who wish to demonstrate their works/projects. The web application allows each visitor to choose between visiting as a guest or register and become a member so that they can like, share their own works with the owner. All types of users can leave comments/feedbacks on each project. Also, these interactions is helpful to get instant feedback on what type of works that would attract more visitors based on the likes. Since the design purpose is to mainly demonstrating the owner's work, so as to not create conflictions, there are two separate pages for shared projects and owners' for a better user experience.
+This web app is a dynamic and interactive portfolio application for owners(superusers) who wish to demonstrate their works/projects. The web application allows each visitor to choose between visiting as a guest or register and become a member so that they can like, share their own works with the owner. All types of users can leave comments/feedbacks on each project. Also, these interactions is helpful to get instant feedback on what type of works that would attract more visitors based on the likes. Since the design purpose is to mainly demonstrating the owner's work, so as to not create conflictions, there are two separate pages for shared projects and owners' for a better user experience.
 
 ## File Structure
 - Final (default project files from Django when created) 
@@ -35,3 +35,18 @@ This web app is a dynamic and interactive portfolio application for users who wi
 - urls.py (all urls for portfolio app)
 - views.py (have functional view and class view)
 - requirement.txt (have extra Django installments)
+
+## Getting Started
+
+### Run App
+1. Download the folder
+2. In your terminal, `cd` into the mail directory.
+3. Run `python manage.py makemigrations` mail to make migrations for the mail app.
+4. Run `python manage.py migrate` to apply migrations to your database.
+5. Run `python manage.py runserver` to start local host
+
+### Managing Database
+1. In your terminal, `cd` into the mail directory.
+2. Run `python manage.py createsuperuser`, then follow the instructions 
+3. Run `python manage.py runserver` to start local host
+4. Open a Web browser and go to “/admin/” on your local domain – e.g., http://127.0.0.1:8000/admin/
