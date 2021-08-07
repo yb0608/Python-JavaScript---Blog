@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block title %} 
+   Category
+{% endblock %}
+
+{% block content %}
+    <h1>{{category}}</h1>
+        {% if length == 0 %}
+            <p><strong>No Projects In {{category}} </strong></p>
+        {% endif %} 
+    <ul>
+        {% for project in projects %}
+        <li><div class="title"><a class="title" href="{% url 'detail' project.pk %}">{{project.title}} </a></div>
+            <small> 
+                {%if project.author.first_name and project.author.last_name%} 
+                <b>{{project.author.first_name}} {{project.author.last_name}}</b>
+                {% else %}
+                <b>{{project.author}}</b> 
+                {% endif %}
+            </small><br/>
+            <span class="summary">{{project.summary}} </span> </li>
+        <br>
+        {% endfor %}
+    </ul>
+<br/><br/>
+<a class="btn btn-light" href="{% url 'index' %}">Back </a>
+{% endblock %}

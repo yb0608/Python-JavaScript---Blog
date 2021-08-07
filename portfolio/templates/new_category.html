@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block title %} 
+    New Category
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}      
+<h1> Add New Category</h1>
+<br/><br/>
+<div class="form-group">
+<form method = "POST"> 
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-light">Add</button>
+</form>
+</div>
+{% else %}
+<strong>You Have To Login To Access This Page</strong>
+{% endif %}
+<br/><br/>
+<a class="btn btn-light" href="{% url 'share' %}">Back </a>
+{% endblock %}

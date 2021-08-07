@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block title %} 
+    Share Projects
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}      
+<h1> Share Your Project </h1>
+<br/><br/>
+<div class="form-group">
+<form method = "POST" enctype="multipart/form-data"> 
+    {% csrf_token %}
+    {{form.media}}
+    {{form.as_p}}
+    <br/>
+    <button class="btn btn-light">Share</button>
+    <a class="btn btn-light" href="{% url 'new_category' %}">Add New Category </a>
+</form>
+</div>
+
+<script>
+    var user ='{{user.id}} ';
+    document.getElementById("currentUser").value = user;
+</script>
+
+{% else %}
+<strong>You Have To Login To Access This Page</strong>
+{% endif %}
+<br/><br/>
+<a class="btn btn-light" href="{% url 'index' %}">Back </a>
+{% endblock %}

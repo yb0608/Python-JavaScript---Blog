@@ -1,0 +1,96 @@
+div.projectthumb {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+div.projectthumb a img {
+    transition: transform 0.25s;
+}
+
+div.projectthumb a img:hover {
+    transform: scale(1.05);
+    border: 5px solid rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+
+header h1{
+    text-align: center;
+}
+
+div #enterbtn {
+    margin-top: 60px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+    color: grey;
+    font-size: 24pt;
+    border: 5px solid rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+
+}
+
+a#guestbtn {
+   text-align: right;
+}
+a#loginguestbtn{
+    float: right;
+}
+
+button.likeBtn {
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    color: #007bff;
+    background-color: transparent;
+    background-image: none;
+    border-color: #007bff;
+}
+
+button.likeBtn:hover {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+ul li{
+    list-style: none;
+}
+
+a.title{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+a.category{
+    color: rgb(131, 131, 131);
+    text-decoration: none;
+}
+
+
+div.title{
+    font-size: 25px;
+    padding-left: 2px;
+    background-color: orange;
+    width: 100%;
+    display: flex;
+}
+
+p#page-title {
+    color: white;
+    font-weight: bold;
+    font-size: 24pt;
+    text-transform: uppercase;
+    background-color: orange;
+    padding-left: 4px;
+}
+
+p#page-quote {
+    font-style: italic;
+    font-weight: bold;
+    padding-left: 4px;
+    font-size: 20pt;
+    color: grey;
+}

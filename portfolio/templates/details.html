@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+{% block title %} 
+    {{project.title}}
+{% endblock %}
+
+{% block content %}
+       
+    <h1> {{project.title}}</h1>
+    {%if project.author.first_name and project.author.last_name%}
+    <small>By: {{project.author.first_name}} {{project.author.last_name}} 
+    {% else %}
+    <small>By: {{project.author}}
+    {% endif %}
+        {% if user.is_authenticated %}
+            {% if user.id == project.author.id %}
+                - <a href="{% url 'edit' project.pk %}"> Edit </a>  -  
+                <a href="{% url 'delete' project.pk %}"> Delete </a>
+            {% endif %}
+        {% endif %}
+    </small><br>
+    <small>{{project.timestamp}}</small>
+    <hr>
+    <br/>
+    {% if project.image %}
+    <img src="{{project.image.url}}" class="img-fluid" alt="Responsive image"><br/>
+    {% endif %}
+    {{project.content|safe}}
+    <hr>
+    {% if user.is_authenticated %}
+    <button class = "likeBtn" data-post="{{project.id}}">Like</button>&nbsp<span class = "likeCount" data-post="{{project.id}}">{{project.likes.count}}</span> likes
+    {% else %}
+    <small class = "likeCount" data-post="{{project.id}}">Login To Like - {{project.likes.count}} likes</small>
+    {% endif %}
+    <br/><br/>
+    <br/><br/>
+    <hr>
+    <h2>Comments</h2>
+    <br/>
+    {% if not project.comments.all %}
+    <br/>
+        No Comments Yet.<a href="{% url 'comment' project.pk %}"> Create One </a>
+        <br/><br/>
+    {% else %}
+        {% for comment in project.comments.all %}
+        
+            <small> <b>{{comment.commenter}} - {{comment.timestamp}}</b></small><br/>
+                {{comment.content}}
+            <br/><br/>
+        {% endfor %}
+        <a href="{% url 'comment' project.pk %}">Add Comment</a>
+        <hr>
+    {% endif %}
+    <br/><br/>
+    <a class="btn btn-light" href="{% url 'index' %}">Back </a>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block title %} 
+    Delete Project
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    {% if user.id == project.author.id %}             
+        <h1> Delete Project </h1>
+        <br/><br/>
+        <div class="form-group">
+        <form method = "POST"> 
+            {% csrf_token %}
+            <h3>{{project.title}}</h3>
+
+            <p>{{project.content}}</p>
+            <br><br>
+            <strong>This Project Will Be Deleted.</strong>
+            <br><br>
+            <button class="btn btn-light">Delete</button>
+        </form>
+        </div>
+    {% else %}
+        <strong>Login As Author To Delete Project</strong>  
+    {% endif %}  
+{% else %}
+ <strong>You Have To Login To Access This Page</strong>
+{% endif %}
+<br/><br/>
+<a class="btn btn-light" href="{% url 'index' %}">Back </a>
+{% endblock %}

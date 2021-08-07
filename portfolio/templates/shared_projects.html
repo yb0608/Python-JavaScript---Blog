@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block title %} 
+  Shared Projects
+{% endblock %}
+
+{% block content %}
+  
+    <h1>Shared Projects</h1>
+
+    <ul>
+    {% for project in projects %}
+
+        <li><div class="title"><a class="title" href="{% url 'detail' project.pk %}">{{project.title}} </a></div>
+            <small> <i><a class="category" href="{% url 'category' project.category %}">{{project.category}} </a>&nbsp</i>
+                {%if project.author.first_name and project.author.last_name%} 
+                <b>{{project.author.first_name}} {{project.author.last_name}}</b>
+                {% else %}
+                <b>{{project.author}}</b> 
+                {% endif %}
+            </small>
+            <br/>
+            {{project.summary}} 
+        </li>
+        <br>
+    {% endfor %}
+    </ul>
+{% endblock %}

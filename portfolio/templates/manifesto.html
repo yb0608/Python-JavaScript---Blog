@@ -1,0 +1,15 @@
+
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %} 
+   Manifesto
+{% endblock %}
+
+{% block content %}
+{{superuser}}
+        <p id="page-title"> Increase social
+            and ecological wellbeing through artful design. </p>
+        <p id="page-quote">"Landscape Architecture，where nature, culture, technology, and art are fused together." </p>
+        <p id="page-content">Suited at the intersection of landscape, art and urbanism, I am dedicated to designing urban landscapes as fundamental elements to sustainable cities. I understand the social challenges and environmental issues of today, therefore, I see landscape as the platform upon which humans and natural environments can co-mingle as one. Due to my diverse set of backgrounds, my devotion, and exper-tise in landscape, I hope to successfully activate urban cities through large and small scale design. As a professional with a multi-disciplinary background and ideas intertwined through a representative and collaborative approach and familiarity with materials, my work blurs the bound-aries between landscape architecture, the built environment and art.</p>
+        <img id="page_img" src="{% static 'images/Homepage/thumb/Thumb02.png' %}" class="img-fluid" alt="Responsive image"/>
+{% endblock %}

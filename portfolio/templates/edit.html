@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %} 
+    Edit Project
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+    {% if user.id == project.author.id %}
+        <h1> Update Your Project </h1>
+        <br/><br/>
+        <div class="form-group">
+        <form method = "POST" enctype="multipart/form-data"> 
+            {% csrf_token %}
+            {{form.media}}
+            {{form.as_p}}
+            <button class="btn btn-light">Save</button>
+        </form>
+        </div>
+    {% else %}
+        <strong>Login As Author To Edit Project</strong>  
+    {% endif %}  
+{% else %}
+ <strong>You Have To Login To Access This Page</strong>
+{% endif %}
+<br/><br/>
+<a class="btn btn-light" href="{% url 'index' %}">Back </a>
+{% endblock %}

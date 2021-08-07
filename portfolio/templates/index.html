@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block title %} 
+   Yuanbin's Portfolio
+{% endblock %}
+
+{% block content %}
+  
+    <h1>My Projects</h1>
+
+    <ul>
+    {% for project in object_list %}
+    {% if project.author.is_superuser %}
+        <li><div class="title"><a class="title" href="{% url 'detail' project.pk %}">{{project.title}} </a></div>
+         <small> <i><a class="category" href="{% url 'category' project.category %}">{{project.category}} </a>&nbsp</i> 
+            {%if project.author.first_name and project.author.last_name%} 
+                <b>{{project.author.first_name}} {{project.author.last_name}}</b>
+            {% else %}
+                <b>{{project.author}}</b> 
+            {% endif %}
+        </small><br/>
+        <span class="summary">{{project.summary}} </span></li>
+        <br>
+    {% endif %}
+    {% endfor %}
+    
+    </ul>
+{% endblock %}
